@@ -1,0 +1,143 @@
+/* Reproductor */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Evita que los padding aumenten el tamaño de los elementos */
+}
+.reproductor { /* Estilo para el reproductor incluyendo su posición y diseño, fijado al centro de la pantalla 
+    con flex para centrar bordes circulares y fondo semitransparente */
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    border-radius: 20px;
+    background-color: rgba(228,229,228,0.1);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(228,229,228,1);
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+}
+.reproductor h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+.reproductor p{ /* Transparencia para el nombre de la canción */
+    opacity: 0.7;
+}
+#barraVolumen { /* Estilo para la barra de volumen */
+    appearance: none;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    height: 7px;
+    margin: 20px 0 20px;
+    background: rgba(165, 165, 165, 0.9);
+    margin-left: 30px;
+}
+#barraVolumen::-webkit-slider-thumb { /* Estilo para la bola de la barra de volumen */
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(165, 165, 165, 0.9);
+    border-radius: 50%;
+    width: 15px;
+    aspect-ratio: 1/1;
+}
+.botones {
+    display: flex;
+    justify-content: center;
+}
+.botones button { /*Estidlos para los botones*/
+    width: 50px;
+    aspect-ratio: 1/1;
+    margin: 15px;
+    
+    background: rgba(165, 165, 165, 0.3);
+    color : rgba(228,229,228,1);
+    border-radius: 50%;
+    border: 1px solid rgba(228,229,228,1);
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+.enlaces {
+    display: flex;
+    justify-content: center;
+}
+.enlaces button {/* Estilo para los botones de enlaces, pointer es para que el cursor cambie al pasar por encima */
+    padding: 0;
+    margin: 10px;
+    background: transparent;
+    border: none;
+    color : rgba(228,229,228,1);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.mute { /* Botón para mutear o desmutear el audio, está fijo en la parte izquierda colocado para estar a
+     la izquierda de la barra de volumen, aspect ratio 1/1 para que su formato sea cuadrado */
+    position: fixed;
+    top: 104px;
+    left: 15px;
+    width: 30px;
+    aspect-ratio: 1/1;
+    background: rgba(165, 165, 165, 0.3);
+    color : rgba(228,229,228,1);
+    border-radius: 50%;
+    border: 1px solid rgba(228,229,228,1);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Fondo y carrusel */
+.background-images {
+    position: fixed; /* Fijo para que el fondo no se mueva al hacer scroll */
+    inset: 0;
+    filter: brightness(0.5); /* Ajusta el brillo de las imágenes de fondo */
+    overflow: hidden; /* Cuando una imagen se sale del contenedor la oculta */
+    z-index: -1;
+}
+
+.images-slide {
+    animation: 22s slide infinite linear; /* 7s por imagen + transiciones rápidas */
+    display: flex; /* Usar flexbox para alinear las imágenes en fila */
+    height: 100vh; /* Altura completa de la ventana */
+    width: 300vw; /* Tres veces el ancho de la ventana */
+}
+.images-slide img {
+    width: 100vw; /* Cada imagen ocupa un tercio del ancho de la ventana */
+    height: 100vh; /* Altura completa de la ventana */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsionarse */
+}
+#frase{ /* Frase fija en la parte inferior, alineada al centro, con fuente personalizada, tamaño y estilo, color de letra y una sombra para 
+    el texto, z-index alto para que esté encima de otros elementos se asegura de que esté por encima de otros elementos */
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    color: rgba(228,229,228,1);
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+@keyframes slide{ /* Define el tiempo para cambiar de imagen */
+
+    0% { transform: translateX(0); }
+
+    31.8% { transform: translateX(0); }
+
+    34.1% { transform: translateX(-100vw); }
+
+    65.9% { transform: translateX(-100vw); }
+
+    68.2% { transform: translateX(-200vw); }
+
+    100% { transform: translateX(-200vw); }
+}

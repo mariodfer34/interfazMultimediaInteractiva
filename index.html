@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz Multimedia Interactiva</title>
+    <link rel="stylesheet" href="CSS.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class ="background-images">
+        <div class="images-slide" id="slider">
+            <img src="images/godofwar.jpg" alt="primeraImagen">
+            <img src="images/godofwar2.jpg" alt="segundaImagen">
+            <img src="images/godofwar3.jpg" alt="terceraImagen">
+        </div>
+    </div>
+    <section class ="reproductor">
+        <h1>Juego</h1>
+        <p>Nombre</p>
+        <audio id ="cancion">
+            <source src="" type="audio/mpeg"/>
+        </audio>
+        <button class ="mute"><i class="bi bi-volume-up"></i></button>
+        <input type="range" min="0" max ="100" step="1" value="50" id="barraVolumen"/>
+        <div class ="botones">
+            <button class="atras"><i class="bi bi-rewind-fill"></i></button>
+            <button class="reproducir-pausar"><i class="bi bi-play-fill" id ="reproducir-pausar"></i></button>
+            <button class="siguiente"><i class="bi bi-fast-forward-fill"></i></button>
+        </div>
+        <div class="enlaces">
+            <a href ="https://discord.gg/P2rp6ThA" target="_blank">
+                <button class="atras"><i class="bi bi-discord"></i></button>
+            </a>
+            <a href ="https://www.youtube.com/@RockstarGames" target="_blank">
+                <button class="atras"><i class="bi bi-youtube"></i></button>
+            </a>
+            <a href ="https://4fund.com/es/ndc57w" target="_blank">
+                <button class="atras"><i class="bi bi-cash-coin"></i></button>
+            </a>
+        </div>
+    </section>
+    <p id="frase">Frase</p>
+    <script src="JS.js"></script>
+</body>
+</html>
